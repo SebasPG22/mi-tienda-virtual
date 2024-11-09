@@ -1,0 +1,537 @@
+/* Fuentes y colores */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #3f51b5;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px 0;
+    text-align: center;
+}
+
+header img {
+    width: 80px;
+    height: 80px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Estilos para los enlaces de navegación */
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 20px; /* Tamaño consistente en PC y móvil */
+    border-radius: 20px; /* Puntas redondeadas */
+    background: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde semi-transparente */
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s, padding 0.3s, font-size 0.3s;
+    display: inline-block; /* Asegura que los enlaces se comporten como bloques */
+    font-size: 1rem; /* Tamaño de fuente ajustado */
+    text-align: center; /* Asegura que el texto esté centrado */
+}
+
+header nav a:hover {
+    background: rgba(255, 255, 255, 0.3); /* Fondo un poco más opaco al pasar el ratón */
+    transform: translateY(-3px); /* Desplazamiento al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el ratón */
+    padding: 12px 22px; /* Ajustar el padding al pasar el ratón */
+    font-size: 1.1rem; /* Ajustar el tamaño de la fuente al pasar el ratón */
+}
+
+header nav a:active {
+    transform: translateY(0); /* Restablece la posición al hacer clic */
+    box-shadow: none; /* Elimina la sombra al hacer clic */
+}
+
+/* Mantener el mismo tamaño en dispositivos móviles */
+@media (max-width: 768px) {
+    header nav a {
+        padding: 10px 20px; /* Mantener el mismo tamaño en dispositivos móviles */
+        font-size: 1rem; /* Mantener el mismo tamaño de fuente en dispositivos móviles */
+    }
+
+    header nav a:hover {
+        padding: 12px 22px; /* Ajustar el padding al pasar el ratón en dispositivos móviles */
+        font-size: 1.1rem; /* Ajustar el tamaño de la fuente al pasar el ratón en dispositivos móviles */
+    }
+}
+
+header .login {
+    background-color: #ff4081;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: #fff;
+}
+
+.intro-text {
+    max-width: 50%;
+}
+
+.intro-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.intro-text p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.intro-text button {
+    padding: 15px 30px;
+    border: none;
+    background-color: #3f51b5;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro-text button:hover {
+    background-color: #303f9f;
+    transform: translateY(-2px);
+}
+
+.intro-image {
+    max-width: 50%;
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Logo grande centrado y transparente */
+.logo-grande {
+    display: block;
+    margin: 0 auto;
+    opacity: 0.8;
+}
+
+/* Pie de página más pequeño */
+footer {
+    background-color: #3f51b5;
+    padding: 10px;  /* Reduje el padding para hacerlo más pequeño */
+    color: #fff;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    margin-top: auto;
+    font-size: 0.7em;  /* Hice el tamaño de la fuente más pequeño */
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #3f51b5;
+    color: #fff;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.footer-section h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #ff4081;
+}
+
+.footer-section p {
+    margin: 5px 0;
+}
+
+.footer-copyright {
+    text-align: center;
+    padding: 10px;
+    background-color: #303f9f;
+    font-size: 0.7em;
+}
+
+@media (max-width: 768px) {
+    .footer-sections {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .intro {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .intro-text, .intro-image {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .form-container {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    header img {
+        width: 60px;
+        height: 60px;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .logo-grande {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Estilos para las ventanas flotantes */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.modal-content .close:hover {
+    color: #333;
+}
+
+/* Estilos específicos para el modal de productos */
+#productList div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#productList img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+#productList button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #3f51b5;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#productList button:hover {
+    background-color: #303f9f;
+}
+
+/* Ventana de confirmación de adición al carrito */
+#addToCartModal .modal-content {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#addToCartModal .modal-content p {
+    margin: 20px 0;
+}
+
+/* Ventana de factura */
+#invoiceDetails {
+    text-align: left;
+}
+
+/* Estilos responsivos para las ventanas flotantes */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 10px;
+    }
+    
+    #productList div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #productList img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    #productList p, #productList button {
+        width: 100%;
+        text-align: left;
+        margin: 5px 0;
+    }
+    
+    .center-btn button {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+    }
+}
+
+/* Estilos llamativos para el botón "Proceder al pago" */
+#proceedToCheckoutButton {
+    padding: 15px 30px;
+    border: none;
+    background-color: #ff4081;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#proceedToCheckoutButton:hover {
+    background-color: #d4006e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos llamativos para el botón "Eliminar" */
+.remove-product-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #e53935;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.remove-product-button:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Estilos para el modal de alerta de inicio de sesión */
+#loginAlertModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#loginAlertModal.show {
+    opacity: 1;
+    display: flex;
+}
+
+#loginAlertModal .modal-content {
+    background-color: #ff9800;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#loginAlertModal .modal-content p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+#loginAlertModal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+#loginAlertModal .close:hover {
+    color: #333;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Fondo oscuro con transparencia */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 2px solid #007bff; /* Borde azul */
+    border-radius: 10px; /* Bordes redondeados */
+    width: 60%; /* Ancho reducido */
+    text-align: center; /* Centrar el texto */
+    color: #333; /* Color del texto */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra */
+    animation: modalShow 0.5s; /* Animación de aparición */
+}
+
+/* Animación para el modal */
+@keyframes modalShow {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+/* Estilo para el botón de borrar historial */
+.clear-history-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff0000; /* Color de fondo rojo */
+    color: #fff; /* Color del texto blanco */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.clear-history-btn:hover {
+    background-color: #cc0000; /* Color de fondo rojo oscuro al pasar el ratón */
+}
+
+/* Estilos para cada historial en un recuadro */
+#purchaseList div {
+    padding: 10px;
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espacio entre recuadros */
+    background-color: #f9f9f9; /* Fondo gris claro */
+}
+
+/* Estilos para los elementos dentro de cada recuadro */
+#purchaseList p {
+    margin: 5px 0;
+}
+
+#purchaseList ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+#purchaseList ul li {
+    list-style-type: disc;
+    margin-left: 15px;
+}
+
+#purchaseList ul li:before {
+    content: "•";
+    color: #007bff; /* Punto azul */
+    margin-right: 5px;
+}
+
+/* Estilos para los detalles de compra */
+#detailsList div {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+}

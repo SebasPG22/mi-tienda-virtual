@@ -1,0 +1,199 @@
+/* Estilos generales */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box; /* Asegura que el padding y border se incluyan en el tamaño total */
+}
+
+/* Contenedor del login */
+.login-container {
+    display: flex;
+    max-width: 900px;
+    width: 100%; /* Asegura que ocupe el 100% del contenedor padre */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    margin: 20px;
+    box-sizing: border-box; /* Asegura que el padding y border se incluyan en el tamaño total */
+}
+
+.login-left {
+    background-color: #007bff;
+    color: #fff;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-logo {
+    text-align: center;
+}
+
+.login-logo p {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.login-right {
+    padding: 40px;
+    width: 60%;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
+}
+
+.login-right h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
+}
+
+.input-group i {
+    margin-right: 10px;
+}
+
+.checkbox-group {
+    margin-bottom: 20px;
+}
+
+.checkbox-group input {
+    margin-right: 5px;
+}
+
+.btn-primary {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Centrar formulario de inicio de sesión */
+.centrar-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+form h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        max-width: 100%; /* Asegurar que el contenedor ocupa el 100% en móviles */
+    }
+
+    .login-left, .login-right {
+        width: 100%;
+    }
+
+    .login-right {
+        padding: 20px;
+    }
+
+    .input-group input {
+        padding: 12px;
+        font-size: 1rem;
+        width: 100%; /* Asegurar que el input ocupe el 100% del contenedor */
+    }
+
+    .btn-primary {
+        padding: 12px;
+        font-size: 1rem;
+        width: 100%; /* Asegurar que el botón ocupe el 100% del contenedor */
+    }
+}
+
+/* Estilos para el logo */
+.interactive-logo {
+    width: 145px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto al pasar el cursor (hover) */
+.interactive-logo:hover {
+    transform: scale(1.1); /* Aumenta el tamaño */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Añade sombra */
+}
+
+/* Efecto al hacer clic (active) */
+.interactive-logo:active {
+    transform: scale(0.9); /* Reduce el tamaño momentáneamente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Cambia la sombra */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Fondo oscuro con transparencia */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 80% auto; /* Ajuste de margen superior para bajar el modal */
+    padding: 20px;
+    border: 2px solid #007bff; /* Borde azul */
+    border-radius: 10px; /* Bordes redondeados */
+    width: 50%; /* Ancho reducido */
+    text-align: center; /* Centrar el texto */
+    color: #007bff; /* Color del texto azul */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra */
+    animation: modalShow 0.5s; /* Animación de aparición */
+}
+
+/* Animación para el modal */
+@keyframes modalShow {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Virtual</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="iconSrc/logo.png" alt="Logo">
+        <h1>Bienvenido a mi Tienda Virtual</h1>
+        <nav>
+            <a href="javascript:void(0)" onclick="showInstructions()"
+            aria-label="Cómo Funciona">Cómo Funciona</a>
+            <a href="javascript:void(0)" onclick="showModal('servicioModal')" aria-label="Servicio">Servicio</a>
+            <a href="javascript:void(0)" onclick="showModal('sobreNosotrosModal')" aria-label="Sobre Nosotros">Sobre Nosotros</a>
+            <a href="javascript:void(0)" onclick="showModal('contactoModal')" aria-label="Contacto">Contacto</a>
+            <a href="javascript:void(0)" onclick="showPurchaseHistoryModal()"
+            aria-label="Historial de Compras">Historial de Compras</a>
+            <a href="javascript:void(0)" id="logoutBtn" onclick="logout()">Cerrar Sesión</a> <!-- Botón de cerrar sesión -->
+            
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <div class="intro-text">
+                <h2>Compra fácil y rápido desde tu casa</h2>
+                <p>Disfruta de la mejor experiencia de compra online con nosotros.</p>
+               <button id="startShopping" onclick="openProductModal()" aria-label="Comenzar a comprar">Comenzar</button>
+            </div>
+            
+            <div class="intro-image">
+                <img src="iconSrc/shopping_cart.png" alt="Carrito de compras">
+            </div>
+        </section>
+        <section class="content" id="content">
+            <img src="iconSrc/logo_grande.png" alt="Logo Grande" class="logo-grande">
+        </section>
+        
+        
+    </main>
+    <footer>
+        <div class="footer-sections">
+            <div class="footer-section">
+                <h2>Internacional</h2>
+                <a href="#">España</a>
+                <a href="#">México</a>
+                <a href="#">Argentina</a>
+                <a href="#">Chile</a>
+            </div>
+            <div class="footer-section">
+                <h2>Servicios</h2>
+                <a href="#">Música en Streaming</a>
+                <a href="#">Libros en Línea</a>
+                <a href="#">Entrega Rápida</a>
+                <a href="#">Atención al Cliente</a>
+            </div>
+            <div class="footer-section">
+                <h2>Políticas</h2>
+                <a href="#">Condiciones de Uso</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Cookies</a>
+            </div>
+            <div class="footer-section">
+                <h2>Contacto</h2>
+                <p>Nombre: [Tu Nombre]</p>
+                <p>Correo: [Tu Correo]</p>
+                <p>Teléfono: [Tu Teléfono]</p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2024 TuTiendaVirtual. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de productos -->
+    <div id="productModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductModal()">&times;</span>
+            <h2>Selecciona tus productos</h2>
+            <div id="productList"></div>
+            <button id="proceedToCheckoutButton" onclick="proceedToCheckout()">Proceder al pago</button>
+            <div id="cartContainer"></div>
+        </div>
+    </div>
+    <!-- Alerta de inicie sesion -->
+    <div id="loginAlertModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeLoginAlertModal()">&times;</span>
+        <p id="loginAlertMessage"></p>
+    </div>
+</div>
+    <!-- Modal de factura -->
+    <div id="invoiceModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeInvoiceModal()">&times;</span>
+            <h2>Factura</h2>
+            <div id="invoiceDetails"></div>
+        </div>
+    </div>
+    <!-- Modal de confirmación de adición al carrito -->
+<div id="addToCartModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeAddToCartModal()">&times;</span>
+        <p>Producto añadido al carrito exitosamente.</p>
+    </div>
+</div>
+
+    <!-- Ventanas modales, servio, sobrenosotros, contacto -->
+    <div id="servicioModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('servicioModal')">&times;</span>
+            <h2>Servicio</h2>
+            <p>Descripción de los servicios que ofreces.</p>
+        </div>
+    </div>
+
+    <div id="sobreNosotrosModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('sobreNosotrosModal')">&times;</span>
+            <h2>Sobre Nosotros</h2>
+            <p>Información sobre tu tienda y tu equipo.</p>
+        </div>
+    </div>
+
+    <div id="contactoModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('contactoModal')">&times;</span>
+            <h2>Contacto</h2>
+            <p>Formulario de contacto y detalles.</p>
+        </div>
+    </div>
+<!-- Modal para el historial de compras -->
+<div id="purchaseHistoryModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="closePurchaseHistoryModal()">&times;</span>
+        <h2>Historial de Compras</h2>
+        <div id="purchaseList"></div>
+        <button class="clear-history-btn" onclick="clearPurchaseHistory()">Borrar Historial</button>
+    </div>
+</div>
+<!-- Modal para las instrucciones -->
+<div class="modal" id="instructionsModal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('instructionsModal')">&times;</span>
+        <h2>Cómo Funciona</h2>
+        <p>1. Navega por las categorías para encontrar tus productos.</p>
+        <p>2. Añade productos al carrito con el botón "Añadir al Carrito".</p>
+        <p>3. Revisa tu carrito y procede al pago.</p>
+        <p>4. Completa la información de envío y realiza tu pago.</p>
+        <p>5. ¡Espera a recibir tus productos en casa!</p>
+    </div>
+</div>
+
+    <script src="seba.js"></script>
+    <script src="modal.js"></script>
+</body>
+</html>
