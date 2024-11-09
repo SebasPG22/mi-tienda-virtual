@@ -273,11 +273,13 @@ footer {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    width: 80%;
-    max-width: 500px;
+    width: 90%;
+    max-width: 700px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
+    overflow:auto ;
+    max-height: 90%;
 }
 
 .modal-content .close {
@@ -294,17 +296,35 @@ footer {
 }
 
 /* Estilos específicos para el modal de productos */
+#productList {
+    display: flex;
+    flex-wrap: wrap; /* Asegurar que los productos se envuelvan */
+    gap: 10px; /* Espacio entre productos */
+    justify-content: center; /* Centrar productos */
+    padding: 10px;
+}
+
 #productList div {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    width: calc(33.333% - 20px); /* Ajustar para 3 productos por fila en PC */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
 }
 
 #productList img {
-    width: 60px;
-    height: 60px;
+    width: 100%;
+    height: auto;
+    max-height: 120px; /* Ajustar la altura máxima de la imagen */
     object-fit: cover;
+    border-radius: 5px;
 }
 
 #productList button {
@@ -319,6 +339,61 @@ footer {
 
 #productList button:hover {
     background-color: #303f9f;
+}
+
+/* Ajustes responsivos para móviles */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 10px;
+        overflow: auto; /* Asegurar que el contenido no se salga */
+    }
+
+    #productList {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en móviles */
+        gap: 10px; /* Espacio entre productos */
+    }
+
+    #productList div {
+        width: 100%; /* Asegurar que los productos ocupen el ancho completo en la grilla */
+        margin-bottom: 10px;
+    }
+
+    #productList img {
+        max-height: 80px; /* Ajustar la altura máxima de la imagen */
+    }
+
+    #productList p, #productList button {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        padding: 10px;
+    }
+
+    #productList {
+        grid-template-columns: 1fr; /* Una columna en pantallas más pequeñas */
+    }
+
+    #productList div {
+        width: 100%;
+    }
+
+    #productList img {
+        max-height: 100px; /* Ajustar la altura máxima de la imagen */
+    }
+
+    #productList p, #productList button {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
 }
 
 /* Ventana de confirmación de adición al carrito */
