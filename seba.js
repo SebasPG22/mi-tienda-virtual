@@ -231,7 +231,9 @@ function proceedToCheckout() {
     modal.style.display = 'none';
     modal.classList.remove('show');
     showInvoice();
+    showPaymentMethods(); // Mostrar la sección de métodos de pago
 }
+
 const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) ||
 [];
 
@@ -327,4 +329,121 @@ window.onclick = function(event) {
     if (event.target == purchaseHistoryModal) {
         closePurchaseHistoryModal();
     }
+}
+
+
+
+// Función para mostrar los métodos de pago
+function showPaymentMethods() {
+    const paymentMethodsSection = document.getElementById('paymentMethodsSection');
+    if (paymentMethodsSection.style.display === 'none') {
+        paymentMethodsSection.style.display = 'block';
+        document.getElementById('proceedToCheckoutButton').style.display = 'none';
+    } else {
+        paymentMethodsSection.style.display = 'none';
+    }
+}
+
+// Función para proceder al pago según el método seleccionado
+function proceedToPayment() {
+    const selectedPaymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+    
+    switch(selectedPaymentMethod) {
+        case 'credit-card':
+            processCreditCardPayment();
+            break;
+        case 'paypal':
+            processPayPalPayment();
+            break;
+        case 'bank-transfer':
+            processBankTransferPayment();
+            break;
+        case 'cryptocurrency':
+            processCryptocurrencyPayment();
+            break;
+        default:
+            alert('Por favor, seleccione un método de pago.');
+    }
+}
+
+// Función para procesar el pago con tarjeta de crédito
+function processCreditCardPayment() {
+    alert('Procesando el pago con tarjeta de crédito...');
+    addToPurchaseHistory('Tarjeta de Crédito');
+}
+
+// Función para procesar el pago con PayPal
+function processPayPalPayment() {
+    alert('Redirigiendo a PayPal...');
+    addToPurchaseHistory('PayPal');
+}
+
+// Función para procesar el pago con transferencia bancaria
+function processBankTransferPayment() {
+    alert('Procesando el pago con transferencia bancaria...');
+    addToPurchaseHistory('Transferencia Bancaria');
+}
+
+// Función para procesar el pago con criptomonedas
+function processCryptocurrencyPayment() {
+    alert('Procesando el pago con criptomonedas...');
+    addToPurchaseHistory('Criptomonedas');
+}
+
+// Función para agregar un pago al historial de compras
+function addToPurchaseHistory(paymentMethod) {
+    const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+    const purchaseItem = {
+        method: paymentMethod,
+        date: new Date(),
+        items: cart,
+        total: cart.reduce((total, product) => total + product.price, 0)
+    };
+
+    purchaseHistory.push(purchaseItem);
+    localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory));
+
+    // Limpiar el carrito
+    cart.length = 0;
+    updateCartUI();
+
+    alert('Compra realizada con éxito.');
+}
+
+// Mostrar el historial de compras (función actualizada)
+function showPurchaseHistoryModal() {
+    const purchaseHistoryModal = document.getElementById('purchaseHistoryModal');
+    const purchaseList = document.getElementById('purchaseList');
+    purchaseList.innerHTML = '';
+
+    const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+
+    purchaseHistory.forEach(purchase => {
+        const purchaseElement = document.createElement('div');
+        const purchaseDate = new Date(purchase.date);
+        purchaseElement.innerHTML = `
+            <p>Fecha: ${purchaseDate.toLocaleDateString()}</p>
+            <p>Hora: ${purchaseDate.toLocaleTimeString()}</p>
+            <p>Método de Pago: ${purchase.method}</p>
+            <p>Cantidad de Productos: ${purchase.items.length}</p>
+            <p>Monto Total: $${purchase.total.toFixed(2)}</p>
+        `;
+        purchaseList.appendChild(purchaseElement);
+    });
+
+    purchaseHistoryModal.style.display = 'block';
+    purchaseHistoryModal.classList.add('show');
+}
+
+// Función para cerrar el historial de compras
+function closePurchaseHistoryModal() {
+    const purchaseHistoryModal = document.getElementById('purchaseHistoryModal');
+    purchaseHistoryModal.style.display = 'none';
+    purchaseHistoryModal.classList.remove('show');
+}
+
+// Función para borrar el historial de compras
+function clearPurchaseHistory() {
+    localStorage.removeItem('purchaseHistory');
+    showPurchaseHistoryModal();
 }

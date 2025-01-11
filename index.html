@@ -1,11 +1,46 @@
-html
-     <!DOCTYPE html>
-     <html>
-     <head>
-         <meta http-equiv="refresh" content="0; url=login.html">
-         <title>Redirigiendo...</title>
-     </head>
-     <body>
-         Si no eres redirigido automáticamente, <a href="login.html">haz clic aquí</a>.
-     </body>
-     </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-left">
+            <div class="login-logo">
+                <img src="iconSrc/sebas.png" alt="Logo Tienda" class="interactive-logo">
+            </div>
+        </div>
+        <div class="login-right">
+           <form onsubmit="login(event)">
+               <h2>Ingrese sus datos.</h2>
+               <div class="input-group">
+                   <label for="username"><i class="fa fa-envelope"></i> Nombre
+                   de usuario</label>
+                   <input type="text" id="username" required>
+               </div>
+               <div class="input-group">
+                   <label for="password"><i class="fa fa-lock"></i> Contraseña</label>
+                   <input type="password" id="password" required>
+               </div>
+               <div class="checkbox-group">
+                   <input type="checkbox" id="remember">
+                   <label for="remember">Recordar credenciales</label>
+               </div>
+               <button type="submit" class="btn-primary">Iniciar sesión</button>
+               <p>¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
+           </form>
+        </div>
+    </div>
+    <div id="loginErrorModal" class="modal">
+    <div class="modal-content">
+        <p>Datos incorrectas</p>
+    </div>
+</div>
+    
+    <script src="user.js"></script>
+    <script src="modals.js"></script>
+</body>
+</html>
