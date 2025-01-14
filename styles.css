@@ -9,7 +9,23 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+ 
+ /* Estilos de el titulo de la tienda */
 
+h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 3em;
+    color: #ffffff; /* Color blanco puro */
+    background: none;
+    padding: 0;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
 header {
     background-color: #3f51b5;
     color: #fff;
